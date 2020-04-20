@@ -32,44 +32,79 @@ div img {
 
 /* grid system -- mobile first! */
 
+/*Clearing is typically done in the ::after preudoelement of
+ * the class representing a row*/
+.row::after{
+	content: "";
+	display: table;
+	/*when you float, you must clear!
+	 *Clearing is typically done at the row level with float*/
+	clear: both;
+}
+[class*='col'] {
+	/*We are not using float here as we are using a **mobile first** approach,
+	 * and are stacking each element over the other*/
+	float: none;
+	width: 92%;
+	margin-left: 4%;
+	margin-right: 4%;
+	/*Internet explorer hack - Get more details*/
+	min-height: 1px;
+	position: relative;
+}
+
+.col-1,
+.col-1a {
+	background-color: #ffc;
+}
+.col-2 {
+	background-color: #fcf;
+}
+.col-3 {
+	background-color: #cff;
+}
+.col-4 {
+	background-color: #ccf;
+}
+
 
 /* Mobile Landscape Screen Sizes */
-@media only screen and (min-width: 480px)  {
+@media only screen and (min-width: 480px) {
+	[class*="col"] {
+		margin-right: 0%;
+		float: left;
+		min-height: 1px;
+		height: 100%;
+	}
+	.col-1,
+	.col-2 {
+		width: 44%;
+	}
+	.col-1a,
+	.col-3,
+	.col-4 {
+		width: 92%;
+	}
 
 }
 /* Desktop screen Sizes */
+
 @media only screen and (min-width: 768px) {
 
+	.col-1, 
+	.col-1a {
+		width: 20%;
+	}
+	.col-2 {
+		width: 44%;
+	}
+	.col-3 {
+		width: 68%;
+	}
+	.col-4 {
+		width: 92%;
+	}
 }
 
-/*CSS Layout for Rows and Cells*/
+/*Column Heights still seem to be an issue => Some cells are longer than the others*/
 
-.row {
-	clear: both;
-}
-.one-by-four {
-	width: 23%;
-	float: left;
-	margin: 1%;
-	background-color: #ffc;
-}
-
-.two-by-two {
-	width: 48%;
-	float: left;
-	margin: 1%;
-	background-color: #fcf;
-}
-
-.three-by-four {
-	width: 73%;
-	float: left;
-	margin: 1%;
-	background-color: #cff;
-}
-.four-by-four {
-	width: 98%;
-	float: left;
-	margin: 1%;
-	background-color: #ccf;
-}
