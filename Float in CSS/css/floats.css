@@ -41,3 +41,35 @@ div img {
 @media only screen and (min-width: 768px) {
 
 }
+
+/*CSS Layout for Rows and Cells*/
+
+.row {
+	clear: both;
+}
+.one-by-four {
+	width: 23%;
+	float: left;
+	margin: 1%;
+	background-color: #ffc;
+}
+
+.two-by-two {
+	width: 48%;
+	float: left;
+	margin: 1%;
+	background-color: #fcf;
+}
+
+.three-by-four {
+	width: 73%;
+	float: left;
+	margin: 1%;
+	background-color: #cff;
+}
+.four-by-four {
+	width: 98%;
+	float: left;
+	margin: 1%;
+	background-color: #ccf;
+}
